@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Bank</title>
+</head>
+<body>
+	<!-- include menu -->
+	<th:block th:include="/_menu"></th:block>
+	<h2>Send Money</h2>
+	<ul>
+		<li>1 . Tom </li>
+		<li>2 . Jerry </li>
+		<li>3 . Donal </li>
+	</ul>
+	
+	<div th:if="${errorMessage != null}" style="color: red;" th:utext="${errorMessage}">..</div>
+	
+	<form th:action="@${sendMoney}" th:object="${sendMoneyForm}" method="post">
+		<table>
+			<tr>
+				<td>From Bank Account</td>
+				<td><input type="text" th:field="*{fromAccountId}"/> </td>
+				
+			</tr>
+			<tr>
+				<td>To Bank Account</td>
+				<td><input type="text" th:field="*{toAccountId}"/> </td>
+				
+			</tr>
+		</table>
+	</form>
+</body>
+</html>
